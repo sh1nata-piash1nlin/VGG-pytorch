@@ -1,3 +1,6 @@
+"""
+    @author: Nguyen Hai Trieu <22110082@student.hcmute.edu.vn> 
+"""
 import cv2
 import os
 
@@ -12,7 +15,7 @@ while True:
     frame = cv2.resize(frame, dsize=None, fx=0.3, fy=0.3)
     cv2.imshow('frame', frame)
     if 60 <= i <= 2060:
-        print("Số ảnh capture = ", i - 60)
+        print("Number of images that is captured = ", i - 60)
         directory = f'data/VNCurrency/currency_train/{label}'
         if not os.path.exists(directory):
             os.makedirs(directory)
