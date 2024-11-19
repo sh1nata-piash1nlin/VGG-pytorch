@@ -44,8 +44,8 @@ def train(args):
     ])
 
 
-    train_set = VNCurrencyDataset(root=args.data_pathm, train=True, transform = train_transform)
-    valid_set = VNCurrencyDataset(root=args.data_pathm, train=False, transform = test_transform)
+    train_set = VNCurrencyDataset(root=args.data_path, train=True, transform = train_transform)
+    valid_set = VNCurrencyDataset(root=args.data_path, train=False, transform = test_transform)
 
     training_params = {
         "batch_size": args.batch_size,
@@ -87,8 +87,8 @@ def train(args):
     if os.path.isdir(args.tensorboard_path):
         shutil.rmtree(args.tensorboard_path)
     os.mkdir(args.tensorboard_path)
-    if not os.path.isdir(args.trained_models):
-        os.mkdir(args.trained_models)
+    if not os.path.isdir(args.VNCur_trained_models):
+        os.mkdir(args.VNCur_trained_models)
     writer = SummaryWriter(args.tensorboard_path)
 
     total_iters = len(training_dataloader)
@@ -144,7 +144,8 @@ def train(args):
         if acc > best_acc:
             torch.save(checkpoint, os.path.join(args.VNCur_trained_models, "bestVNCur.pth"))
             best_acc = acc
-        scheduler.step()
+        if args.optimizer == "sgd":
+            scheduler.step()
 
 if __name__ == '__main__':
     args = get_args()
