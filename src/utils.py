@@ -15,7 +15,7 @@ def get_args():
     parse.add_argument('-l', '--lr', type=float, default=1e-3) #for adam
     parse.add_argument('-w', '--num_workers', type=int, default=os.cpu_count())
     parse.add_argument('-s', '--image_size', type=int, default=224)
-    parse.add_argument("-p", "--optimizer", type=str, choices=["sgd", "adam"], default="adam")
+    parse.add_argument("-op", "--optimizer", type=str, choices=["sgd", "adam"], default="adam")
     parse.add_argument('-c', '--checkpoint_path', type=str, default=None) #None = train tu dau
     parse.add_argument('-t', '--tensorboard_path', type=str, default="tensorboard")
     parse.add_argument('-r', '--VNCur_trained_models', type=str, default="VNCur_trained_models")
