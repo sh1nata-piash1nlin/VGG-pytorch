@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import os
 
 def get_args():
-    parse = argparse.ArgumentParser(description='Football Jerseys')
+    parse = argparse.ArgumentParser(description='Vietnamese Currency')
     parse.add_argument('-p', '--data_path', type=str, default='../../data/VNCurrency')
     parse.add_argument('-b', '--batch_size', type=int, default=32)
     parse.add_argument('-e', '--epochs', type=int, default=22)
